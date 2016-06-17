@@ -1,0 +1,7 @@
+<%= simple_form_for @post do |f|%>
+  <%=select_tag(:category_id, options_for_select(@categories), :prompt => "Select category")%>
+  <%=f.input :title%>
+  <%=f.input :content%>
+  <%=f.input :photo%>
+  <%=f.button :submit%>
+<%end%>

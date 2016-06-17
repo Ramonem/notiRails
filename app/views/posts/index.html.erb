@@ -1,0 +1,8 @@
+<h1>Index</h1>
+<%@posts.each do |p|%>
+  <p>
+    <%=link_to p.title, p%>
+  </p>
+<%end%>
+
+<%=link_to "Crear", new_post_path%>
