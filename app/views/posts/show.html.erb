@@ -2,3 +2,16 @@
 <p>
   Visto: <%=@post.visit%>
 </p>
+<div id="broma">
+  asd
+</div>
+<script type="text/javascript">
+
+  $(document).ready(function() {
+
+    $('#broma').delay(4000).fadeOut('slow', function() {
+        $('#broma').html("<div style='border:1px solid #e6c788; background: #efdcb4; padding:5px; margin:10px; text-align:center;'><h4>Era una broma jejeje</h4></div>");
+        $('#broma').fadeIn(200);
+    });
+  });
+</script>
