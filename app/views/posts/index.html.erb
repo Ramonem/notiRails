@@ -22,3 +22,25 @@
     <hr>
   <%end%>
 </div>
+<div class="col-md-6">
+  <p>
+    <center><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTBvNPeMgFPrPZ6ytzGH5XlBZzWlaVZ9B1KL98GdXY23_lUtSXwY2hf4RI9BQ" style="padding: 10" /></center>
+  </p>
+  <div>
+    <h3>TOP 10</h3><br>
+    <%@popular.each do |p|%>
+      <%=link_to p.title, p%> visitas: <%=p.visit%>
+      <hr>
+    <%end%>
+  </div>
+  <div>
+    <center><div class="fb-page" data-href="https://www.facebook.com/vendomientrada1" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/vendomientrada1" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/vendomientrada1">No iré, Vendo mi entrada</a></blockquote></div></center>
+  </div>
+  <div>
+    <h3>Ultimas noticias creadas</h3><br>
+    <%@lastest.each do |p|%>
+      <%=link_to p.title, p%>
+      <hr>
+    <%end%>
+  </div>
+</div>
