@@ -1,7 +1,26 @@
 <%= simple_form_for @post do |f|%>
-  <%=select_tag(:category_id, options_for_select(@categories), :prompt => "Select category")%>
-  <%=f.input :title%>
-  <%=f.input :content%>
-  <%=f.input :photo%>
-  <%=f.button :submit%>
+  <div class="col-md-6">
+    <div class="form-group">
+      <%=f.input :title, input_html: { class:"form-control"}, placeholder: 'Título de la noticia', label: 'Título'%>
+    </div>
+    <div class="form-group">
+      <%=f.input :content, input_html: { class:"form-control"}, :as => :text, placeholder: 'Primer parrafo que se vera en la publicación', label: 'Contenido'%>
+    </div>
+    <div class="form-group">
+      <label for="">Categoria</label>
+      <%=select_tag(:category_id, options_for_select(@categories), :prompt => "Selecciona una categoria", :class => "form-control")%>
+    </div>
+    <div class="form-group">
+      <%=f.input :photo, input_html: { class:"form-control"}, placeholder: 'Url de la imagen', label: 'Imagen'%>
+    </div>
+    <%=f.button :submit, :class => "btn btn-default"%>
+  </div>
+  <div class="col-md-6">
+    <p>
+      <h3>Consejos para una buena broma!</h3>
+    </p>
+    <p>
+      <h5>Para que la noticia sea creible, escribe sin faltas de ortografia, ademas de crear encabezados impactantes pero a la vez precisos!</h5>
+    </p>
+  </div>
 <%end%>

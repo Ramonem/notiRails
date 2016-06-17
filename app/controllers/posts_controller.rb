@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :destroy, :update]
   def index
-    @posts = Post.all
+    @posts = Post.all.where("created_at >= ?", 1.week.ago).order('visit DESC')
+    @categories = Category.all
   end
 
   def show
