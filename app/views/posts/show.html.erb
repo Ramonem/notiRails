@@ -7,10 +7,17 @@
 <div class="col-md-7">
   <div id="broma">
     <h1><strong><%=@post.title%></strong></h1><br>
-    <%=image_tag @post.photo, size: "600x300"%>
-    <p>
-      <%=@post.content%>
-    </p>
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <%=image_tag @post.photo, size: "600x300"%>
+      </div>
+      <div class="panel-footer">
+        <p>
+          <%=@post.content%>
+        </p>
+      </div>
+    </div>
   </div>
   <div class='fb-share-button' data-href='<%=request.original_url%>' data-layout='button_count'></div>
   <div class='fb-share-button' data-href='http://convbot.ramonem.com/bot' data-layout='button_count'></div>
