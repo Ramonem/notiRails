@@ -1,16 +1,36 @@
-<h1><%=@post.title%></h1>
-<p>
-  Visto: <%=@post.visit%>
-</p>
-<div id="broma">
-  asd
+<% content_for :head do %>
+  <meta property="og:url" content="<%=request.original_url%>" />
+  <meta property="og:title" content="<%=@post.title%>" />
+  <meta property="og:description" content="<%=@post.content%>" />
+  <meta property="og:image" content="<%=@post.photo%>" />
+<% end %>
+<div class="col-md-7">
+  <div id="broma">
+    <h1><strong><%=@post.title%></strong></h1><br>
+    <%=image_tag @post.photo, size: "600x300"%>
+    <p>
+      <%=@post.content%>
+    </p>
+  </div>
+  <div class='fb-share-button' data-href='<%=request.original_url%>' data-layout='button_count'></div>
+  <div class='fb-share-button' data-href='http://convbot.ramonem.com/bot' data-layout='button_count'></div>
+</div>
+<div class="col-md-5">
+  <div>
+    <center><div class="fb-page" data-href="https://www.facebook.com/vendomientrada1" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/vendomientrada1" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/vendomientrada1">No iré, Vendo mi entrada</a></blockquote></div></center>
+  </div>
+  <div>
+    <h3>TOP 10</h3><br>
+    <%@popular.each do |p|%>
+      <%=link_to p.title, p%> visitas: <%=p.visit%>
+      <hr>
+    <%end%>
+  </div>
 </div>
 <script type="text/javascript">
-
   $(document).ready(function() {
-
-    $('#broma').delay(4000).fadeOut('slow', function() {
-        $('#broma').html("<div style='border:1px solid #e6c788; background: #efdcb4; padding:5px; margin:10px; text-align:center;'><h4>Era una broma jejeje</h4></div>");
+    $('#broma').delay(6000).fadeOut('slow', function() {
+        $('#broma').html("<div style='border:1px solid #e6c788; background: #efdcb4; padding:5px; margin:10px; text-align:center;'><h4>Era una broma jejeje<br>No eres el unico que ah caido, tu y <%=@post.visit%> más!<br></h4></div>");
         $('#broma').fadeIn(200);
     });
   });

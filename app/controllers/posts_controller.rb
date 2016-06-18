@@ -9,6 +9,7 @@ class PostsController < ApplicationController
 
   def show
     @post.update_visit
+    @popular = Post.all.order('visit DESC').limit(10)
   end
 
   def create
